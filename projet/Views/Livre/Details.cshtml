@@ -5,44 +5,23 @@
     var photoPath = "~/images/" + (Model.PhotoPath ?? "noimage.jpg");
 }
 
-<h1>Details</h1>
-
-<div>
-    <h4>Livre</h4>
-    <hr />
-    <dl class="row">
-        <dt class="col-sm-2">
-            @Html.DisplayNameFor(model => model.Name)
-        </dt>
-        <dd class="col-sm-10">
-            @Html.DisplayFor(model => model.Name)
-        </dd>
-        <dt class="col-sm-2">
-            @Html.DisplayNameFor(model => model.Categorie)
-        </dt>
-        <dd class="col-sm-10">
-            @Html.DisplayFor(model => model.Categorie)
-        </dd>
-        <dt class="col-sm-2">
-            @Html.DisplayNameFor(model => model.price)
-        </dt>
-        <dd class="col-sm-10">
-            @Html.DisplayFor(model => model.price)
-        </dd>
-        <dt class="col-sm-2">
-            <label><b>Photo</b> </label>
-        </dt>
-        <dd class="col-sm-10">
-            <div class="card-body text-left">
+<div class="tab-content">
+                            <div class="tab-pane tabs-animation fade show active" id="tab-content-1" role="tabpanel">
+                                <div class="row">
+                                    <div class="col-md-6">
+                                        <div class="main-card mb-3 card">
+                                            <div class="card-body"><div class="card-body text-left">
                 <img src="@photoPath" asp-append-version="true" height="100" width="100" />
-            </div>
-        </dd>
-    </dl>
+            </div><h5 class="card-title">   Titre:          @Html.DisplayFor(model => model.Name)
+</h5>
+                                                <p> Catégorie :  @Html.DisplayFor(model => model.Categorie)</p>
+                                                 <p> Prix :             @Html.DisplayFor(model => model.price)</p></div>
+                                                  <a class="btn btn-success btn-sm" asp-action="Edit" asp-route-id="@Model.Id">Edit</a> 
+    <a class="btn btn-primary btn-sm" asp-action="Index">Back to List</a>
+                                        </div>
+
+                                    </div>
+                                </div>
+                            </div>
 </div>
 
-
-
-<div>
-    <a asp-action="Edit" asp-route-id="@Model.Id">Edit</a> |
-    <a asp-action="Index">Back to List</a>
-</div>
