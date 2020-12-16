@@ -10,18 +10,21 @@ using projet.Models.Repositories;
 using Microsoft.AspNetCore.Hosting;
 using System.IO;
 using Microsoft.AspNetCore.Hosting;
-
+using Microsoft.AspNetCore.Mvc.Rendering;
 
 namespace projet.Controllers
 {
     public class LivreController : Controller
     {
         private readonly ILivreRepositorye _LivreRepository;
+                private readonly ICategoryRepository _CategoryRepository;
+
         private readonly IWebHostEnvironment hostingEnvironment;
 
-        public LivreController(ILivreRepositorye LivreRepository, IWebHostEnvironment hostingEnvironment)
+        public LivreController(ILivreRepositorye LivreRepository,ICategoryRepository CategoryRepository, IWebHostEnvironment hostingEnvironment)
         {
             _LivreRepository = LivreRepository;
+            _CategoryRepository=CategoryRepository;
             this.hostingEnvironment = hostingEnvironment;
 
         }
@@ -29,6 +32,7 @@ namespace projet.Controllers
         public ActionResult Index()
         {
             var model = _LivreRepository.GetAllLivre();
+                        ViewBag.CategoryID = new SelectList(_CategoryRepository.GetAllCategory(), "Id", "Name");
             return View(model);
         }
 
@@ -41,7 +45,8 @@ namespace projet.Controllers
 
         // GET: LivreController/Create
         public ActionResult Create()
-        {
+        {            ViewBag.Category = new SelectList(_CategoryRepository.GetAllCategory(), "Id", "Name");
+
             return View();
         }
 
@@ -75,14 +80,12 @@ namespace projet.Controllers
 
                     model.Photo.CopyTo(new FileStream(filePath, FileMode.Create));
                 }
-
+            ViewBag.Category = new SelectList(_CategoryRepository.GetAllCategory(), "Id", "Name");
                 Livre newLivre = new Livre
                 {
                     Name = model.Name,
                     price = model.price,
-                    Categorie = model.Categorie,
-                    // Store the file name in PhotoPath property of the employee object
-                    // which gets saved to the Employees database table
+                    Category=model.Category,
                     PhotoPath = uniqueFileName
                 };
 
@@ -106,7 +109,7 @@ namespace projet.Controllers
                 Id = Livre.Id,
                 Name = Livre.Name,
                 price = Livre.price,
-                Categorie = Livre.Categorie,
+                
                 ExistingPhotoPath = Livre.PhotoPath
             };
             return View(LivreEditViewModel);
@@ -125,7 +128,6 @@ namespace projet.Controllers
                 // Update the employee object with the data in the model object
                 Livre.Name = model.Name;
                 Livre.price = model.price;
-                Livre.Categorie = model.Categorie;
 
                 // If the user wants to change the photo, a new photo will be
                 // uploaded and the Photo property on the model object receives

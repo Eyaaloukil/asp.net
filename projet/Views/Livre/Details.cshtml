@@ -14,7 +14,7 @@
                 <img src="@photoPath" asp-append-version="true" height="100" width="100" />
             </div><h5 class="card-title">   Titre:          @Html.DisplayFor(model => model.Name)
 </h5>
-                                                <p> Catégorie :  @Html.DisplayFor(model => model.Categorie)</p>
+                                                <p> Catégorie :  @Html.DisplayFor(model => model.Category.Name)</p>
                                                  <p> Prix :             @Html.DisplayFor(model => model.price)</p></div>
                                                   <a class="btn btn-success btn-sm" asp-action="Edit" asp-route-id="@Model.Id">Edit</a> 
     <a class="btn btn-primary btn-sm" asp-action="Index">Back to List</a>

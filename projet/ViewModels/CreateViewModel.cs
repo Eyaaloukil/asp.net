@@ -10,7 +10,7 @@ namespace projet.ViewModels
     public class CreateViewModel
     {
         public string Name { get; set; }
-        public string Categorie { get; set; }
+        public Category Category { get; set; }
         public int price { get; set; }
         public IFormFile Photo { get; set; }
     }

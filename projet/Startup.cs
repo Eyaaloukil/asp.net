@@ -33,6 +33,7 @@ namespace projet
                         "server=localhost;user=root;password=;database=ef"
             ));
             services.AddScoped<ILivreRepositorye, SQLLivreRepository>();
+            services.AddScoped<ICategoryRepository, SQLCategoryRepository>();
 
         }
 

@@ -17,7 +17,7 @@ namespace projet.Models
         [Required]
         [MaxLength(50, ErrorMessage = "Taille Max 50 cc")]
         public string Name { get; set; }
-        public string Categorie { get; set; }
+        public Category Category { get; set; }     
         [Range(10, 500, ErrorMessage = "Doit être entre 10 et 500")]
         public int price { get; set; }
         public string PhotoPath { get; set; }

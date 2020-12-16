@@ -1,4 +1,4 @@
-﻿@model projet.Models.Livre
+﻿@model projet.Models.Category
 
 @{
     ViewData["Title"] = "Delete";
@@ -17,18 +17,8 @@
         <dd class = "col-sm-10">
             @Html.DisplayFor(model => model.Name)
         </dd>
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.Category.Name)
-        </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.Category.Name)
-        </dd>
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.price)
-        </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.price)
-        </dd>
+      
+        
     </dl>
     
     <form asp-action="Delete">

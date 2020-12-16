@@ -12,6 +12,7 @@ namespace projet.Models
         {
         }
         public DbSet<Livre> Livre { get; set; }
+                public DbSet<Category> Category { get; set; }
 
     }
 }
