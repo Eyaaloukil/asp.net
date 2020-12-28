@@ -11,6 +11,7 @@ namespace projet.ViewModels
     {
         public string Name { get; set; }
         public Category Category { get; set; }
+        public int CategoryId { get; set; }
         public int price { get; set; }
         public IFormFile Photo { get; set; }
     }

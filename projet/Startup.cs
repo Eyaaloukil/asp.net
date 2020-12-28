@@ -30,7 +30,7 @@ namespace projet
             services.AddDbContextPool<AppDbContext>(
                 dbContextOptions => dbContextOptions
                     .UseMySql(
-                        "server=localhost;user=root;password=;database=ef"
+                        "server=localhost;user=root;password=;database=Biblioo"
             ));
             services.AddScoped<ILivreRepositorye, SQLLivreRepository>();
             services.AddScoped<ICategoryRepository, SQLCategoryRepository>();

@@ -34,7 +34,7 @@ namespace projet.Models.Repositories
         }
         public IEnumerable<Livre> GetAllLivre()
         {
-            return context.Livre;
+            return context.Livre.Include("Category");
         }
 
         public Livre GetLivre(int Id)

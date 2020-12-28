@@ -8,8 +8,7 @@ namespace projet.Models
 {
     public class ListeCat
     {
-        public static List<string> Cats = new List<string>
-        { "geographique", "Informatique", "Historique", "Finance","Litéraire" };
+        
     }
     public class Livre
     {
@@ -20,6 +19,8 @@ namespace projet.Models
         public Category Category { get; set; }     
         [Range(10, 500, ErrorMessage = "Doit être entre 10 et 500")]
         public int price { get; set; }
+        public int CategoryId { get; set; }
+
         public string PhotoPath { get; set; }
     }
 }

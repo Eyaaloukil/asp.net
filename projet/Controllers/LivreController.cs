@@ -32,7 +32,8 @@ namespace projet.Controllers
         public ActionResult Index()
         {
             var model = _LivreRepository.GetAllLivre();
-                        ViewBag.CategoryID = new SelectList(_CategoryRepository.GetAllCategory(), "Id", "Name");
+            
+
             return View(model);
         }
 
@@ -40,12 +41,13 @@ namespace projet.Controllers
         public ActionResult Details(int id)
         {
             var liv = _LivreRepository.GetLivre(id);
+            Category category=_CategoryRepository.GetCategory(liv.CategoryId);
             return View(liv);
         }
 
         // GET: LivreController/Create
         public ActionResult Create()
-        {            ViewBag.Category = new SelectList(_CategoryRepository.GetAllCategory(), "Id", "Name");
+        {            ViewBag.CategoryId = new SelectList(_CategoryRepository.GetAllCategory(), "Id", "Name");
 
             return View();
         }
@@ -80,12 +82,12 @@ namespace projet.Controllers
 
                     model.Photo.CopyTo(new FileStream(filePath, FileMode.Create));
                 }
-            ViewBag.Category = new SelectList(_CategoryRepository.GetAllCategory(), "Id", "Name");
+            ViewBag.CategoryId = new SelectList(_CategoryRepository.GetAllCategory(), "Id", "Name");
                 Livre newLivre = new Livre
                 {
                     Name = model.Name,
                     price = model.price,
-                    Category=model.Category,
+                    CategoryId=model.CategoryId,
                     PhotoPath = uniqueFileName
                 };
 
