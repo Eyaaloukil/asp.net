@@ -183,3 +183,7 @@ C:/Users/louki/Desktop/GI3/.NET/projet/projet/obj/Debug/netcoreapp3.1/projet.Mvc
 /home/kadhem/projet/asp.net/projet/obj/Debug/netcoreapp3.1/Razor/Views/Category/index.cshtml.g.cs
 /home/kadhem/projet/asp.net/projet/obj/Debug/netcoreapp3.1/Razor/Views/Category/Delete.cshtml.g.cs
 /home/kadhem/projet/asp.net/projet/obj/Debug/netcoreapp3.1/Razor/Views/Category/Edit.cshtml.g.cs
+/home/kadhem/projet/asp.net/projet/obj/Debug/netcoreapp3.1/Razor/Views/Auteur/Create.cshtml.g.cs
+/home/kadhem/projet/asp.net/projet/obj/Debug/netcoreapp3.1/Razor/Views/Auteur/Delete.cshtml.g.cs
+/home/kadhem/projet/asp.net/projet/obj/Debug/netcoreapp3.1/Razor/Views/Auteur/Edit.cshtml.g.cs
+/home/kadhem/projet/asp.net/projet/obj/Debug/netcoreapp3.1/Razor/Views/Auteur/index.cshtml.g.cs

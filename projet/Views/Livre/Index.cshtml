@@ -19,6 +19,8 @@
                                                 <th class="text-center">#</th>
                                                 <th>Titre</th>
                                                 <th class="text-center">Categorie</th>
+                                                                                                <th class="text-center">Auteur</th>
+
                                                 <th class="text-center">Prix</th>
                                                 <th class="text-center">Actions</th>
                                             </tr>
@@ -45,9 +47,9 @@
                                                             </div>
                                                         </div>
                                                     </div>
-                                                </td>
-                                                <td class="text-center">                @livre.Category.Name</td>
+                                                </td>                                                <td class="text-center">                @livre.Category.Name</td>
 
+                                                <td class="text-center">                @livre.Auteur.Nom @livre.Auteur.Prenom</td>
                                                 <td class="text-center">@livre.price</td>
                                                
                                                 <td class="text-center">

@@ -17,14 +17,17 @@ namespace projet.Controllers
     public class LivreController : Controller
     {
         private readonly ILivreRepositorye _LivreRepository;
-                private readonly ICategoryRepository _CategoryRepository;
+        private readonly ICategoryRepository _CategoryRepository;
+        private readonly IAuteurRepository _AuteurRepository;
 
         private readonly IWebHostEnvironment hostingEnvironment;
 
-        public LivreController(ILivreRepositorye LivreRepository,ICategoryRepository CategoryRepository, IWebHostEnvironment hostingEnvironment)
+        public LivreController(ILivreRepositorye LivreRepository, ICategoryRepository CategoryRepository, IAuteurRepository AuteurRepository, IWebHostEnvironment hostingEnvironment)
         {
             _LivreRepository = LivreRepository;
-            _CategoryRepository=CategoryRepository;
+            _CategoryRepository = CategoryRepository;
+                        _AuteurRepository = AuteurRepository;
+
             this.hostingEnvironment = hostingEnvironment;
 
         }
@@ -32,7 +35,7 @@ namespace projet.Controllers
         public ActionResult Index()
         {
             var model = _LivreRepository.GetAllLivre();
-            
+
 
             return View(model);
         }
@@ -41,21 +44,25 @@ namespace projet.Controllers
         public ActionResult Details(int id)
         {
             var liv = _LivreRepository.GetLivre(id);
-            Category category=_CategoryRepository.GetCategory(liv.CategoryId);
+            Category category = _CategoryRepository.GetCategory(liv.CategoryId);
+                        Auteur auteur = _AuteurRepository.GetAuteur(liv.AuteurId);
+
             return View(liv);
         }
 
         // GET: LivreController/Create
         public ActionResult Create()
-        {            ViewBag.CategoryId = new SelectList(_CategoryRepository.GetAllCategory(), "Id", "Name");
-
+        {
+            ViewBag.CategoryId = new SelectList(_CategoryRepository.GetAllCategory(), "Id", "Name");
+            ViewBag.AuteurId = new SelectList(_AuteurRepository.GetAllAuteurs(), "Id", "Nom");
             return View();
         }
 
         // POST: LivreController/Create
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create(CreateViewModel model) {
+        public ActionResult Create(CreateViewModel model)
+        {
 
             if (ModelState.IsValid)
             {
@@ -82,17 +89,23 @@ namespace projet.Controllers
 
                     model.Photo.CopyTo(new FileStream(filePath, FileMode.Create));
                 }
-            ViewBag.CategoryId = new SelectList(_CategoryRepository.GetAllCategory(), "Id", "Name");
+                ViewBag.CategoryId = new SelectList(_CategoryRepository.GetAllCategory(), "Id", "Name");
+                ViewBag.AuteurId = new SelectList(_AuteurRepository.GetAllAuteurs(), "Id", "Nom");
+
                 Livre newLivre = new Livre
                 {
                     Name = model.Name,
                     price = model.price,
-                    CategoryId=model.CategoryId,
+                    CategoryId = model.CategoryId,
+                                        AuteurId = model.AuteurId,
+
                     PhotoPath = uniqueFileName
                 };
 
                 _LivreRepository.Add(newLivre);
-                return RedirectToAction("details", new { id = newLivre.Id
+                return RedirectToAction("details", new
+                {
+                    id = newLivre.Id
                 });
             }
 
@@ -111,7 +124,7 @@ namespace projet.Controllers
                 Id = Livre.Id,
                 Name = Livre.Name,
                 price = Livre.price,
-                
+
                 ExistingPhotoPath = Livre.PhotoPath
             };
             return View(LivreEditViewModel);
@@ -177,7 +190,7 @@ namespace projet.Controllers
 
             return uniqueFileName;
         }
-        
+
 
         // GET: LivreController/Delete/5
         public ActionResult Delete(int id)

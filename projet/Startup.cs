@@ -34,6 +34,7 @@ namespace projet
             ));
             services.AddScoped<ILivreRepositorye, SQLLivreRepository>();
             services.AddScoped<ICategoryRepository, SQLCategoryRepository>();
+            services.AddScoped<IAuteurRepository, SQLAuteurRepository>();
 
         }
 

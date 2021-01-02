@@ -14412,6 +14412,11 @@
       "FileKind": "mvc"
     },
     {
+      "FilePath": "/home/kadhem/projet/asp.net/projet/Views/Auteur/index.cshtml",
+      "TargetPath": "Views\\Auteur\\index.cshtml",
+      "FileKind": "mvc"
+    },
+    {
       "FilePath": "/home/kadhem/projet/asp.net/projet/Views/Livre/Edit.cshtml",
       "TargetPath": "Views\\Livre\\Edit.cshtml",
       "FileKind": "mvc"
@@ -14457,6 +14462,16 @@
       "FileKind": "mvc"
     },
     {
+      "FilePath": "/home/kadhem/projet/asp.net/projet/Views/Auteur/Edit.cshtml",
+      "TargetPath": "Views\\Auteur\\Edit.cshtml",
+      "FileKind": "mvc"
+    },
+    {
+      "FilePath": "/home/kadhem/projet/asp.net/projet/Views/Auteur/Delete.cshtml",
+      "TargetPath": "Views\\Auteur\\Delete.cshtml",
+      "FileKind": "mvc"
+    },
+    {
       "FilePath": "/home/kadhem/projet/asp.net/projet/Views/Livre/Delete.cshtml",
       "TargetPath": "Views\\Livre\\Delete.cshtml",
       "FileKind": "mvc"
@@ -14464,6 +14479,11 @@
     {
       "FilePath": "/home/kadhem/projet/asp.net/projet/Views/Category/Create.cshtml",
       "TargetPath": "Views\\Category\\Create.cshtml",
+      "FileKind": "mvc"
+    },
+    {
+      "FilePath": "/home/kadhem/projet/asp.net/projet/Views/Auteur/Create.cshtml",
+      "TargetPath": "Views\\Auteur\\Create.cshtml",
       "FileKind": "mvc"
     },
     {
