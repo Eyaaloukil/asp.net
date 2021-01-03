@@ -1,3 +1,4 @@
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using projet.Models;
 using projet.Models.Repositories;
@@ -13,12 +14,15 @@ namespace projet.Controllers
             this.categoryRepository = categoryRepository;
         }
         // GET: SchoolController
+                [Authorize(Roles="Admin")]
+
         public ActionResult Index()
         {
             return View(categoryRepository.GetAllCategory());
         }
 
         // GET: SchoolController/Details/5
+        [Authorize(Roles="Admin")]
         public ActionResult Details(int id)
         {
             var category = categoryRepository.GetCategory(id);
@@ -26,7 +30,8 @@ namespace projet.Controllers
         }
 
         // GET: SchoolController/Create
-        public ActionResult Create()
+               [Authorize(Roles="Admin")]
+ public ActionResult Create()
         {
             return View();
         }
@@ -48,7 +53,8 @@ namespace projet.Controllers
         }
 
         // GET: SchoolController/Edit/5
-        public ActionResult Edit(int id)
+              [Authorize(Roles="Admin")]
+  public ActionResult Edit(int id)
         {
 
 
@@ -64,7 +70,8 @@ namespace projet.Controllers
 
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit(CategoryEditViewModel model)
+               [Authorize(Roles="Admin")]
+ public ActionResult Edit(CategoryEditViewModel model)
         {
             // Check if the provided data is valid, if not rerender the edit view
             // so the user can correct and resubmit the edit form
@@ -92,7 +99,8 @@ namespace projet.Controllers
         }
 
         // GET: SchoolController/Delete/5
-        public ActionResult Delete(int id)
+              [Authorize(Roles="Admin")]
+  public ActionResult Delete(int id)
         {
             var category = categoryRepository.GetCategory(id);
             return View(category);
@@ -101,7 +109,8 @@ namespace projet.Controllers
         // POST: SchoolController/Delete/5
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Delete(Category c)
+               [Authorize(Roles="Admin")]
+ public ActionResult Delete(Category c)
         {
             try
             {

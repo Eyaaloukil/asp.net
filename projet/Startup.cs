@@ -11,6 +11,10 @@ using Microsoft.Extensions.Hosting;
 using projet.Models.Repositories;
 using projet.Models;
 using Microsoft.EntityFrameworkCore;
+using Microsoft.Extensions.Options;
+using Microsoft.AspNetCore.Authentication;
+using Microsoft.AspNetCore.Authentication.Cookies;
+using Microsoft.AspNetCore.Http;
 
 namespace projet
 {
@@ -30,12 +34,18 @@ namespace projet
             services.AddDbContextPool<AppDbContext>(
                 dbContextOptions => dbContextOptions
                     .UseMySql(
-                        "server=localhost;user=root;password=;database=Biblioo"
+                        "server=localhost;user=root;password=;database=Biblioo2"
             ));
             services.AddScoped<ILivreRepositorye, SQLLivreRepository>();
             services.AddScoped<ICategoryRepository, SQLCategoryRepository>();
             services.AddScoped<IAuteurRepository, SQLAuteurRepository>();
+            services.AddScoped<IEmpruntRepository, SQLEmpruntRepository>();
 
+     services.AddAuthentication(CookieAuthenticationDefaults.AuthenticationScheme).AddCookie();        }
+
+        private void CookieAuthentificationDefaults(AuthenticationOptions obj)
+        {
+            throw new NotImplementedException();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -55,6 +65,7 @@ namespace projet
             app.UseStaticFiles();
 
             app.UseRouting();
+                app.UseAuthentication();
 
             app.UseAuthorization();
 

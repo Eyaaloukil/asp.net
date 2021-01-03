@@ -1,3 +1,4 @@
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using projet.Models;
 using projet.Models.Repositories;
@@ -13,13 +14,15 @@ namespace projet.Controllers
             this.auteurRepository = auteurRepository;
         }
         // GET: SchoolController
-        public ActionResult Index()
+               [Authorize(Roles="Admin")]
+ public ActionResult Index()
         {
             return View(auteurRepository.GetAllAuteurs());
         }
 
         // GET: SchoolController/Details/5
-        public ActionResult Details(int id)
+                [Authorize(Roles="Admin")]
+public ActionResult Details(int id)
         {
             var auteur = auteurRepository.GetAuteur(id);
             return View(auteur);
@@ -34,7 +37,8 @@ namespace projet.Controllers
         // POST: SchoolController/Create
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create(Auteur s)
+               [Authorize(Roles="Admin")]
+ public ActionResult Create(Auteur s)
         {
             try
             {
@@ -48,7 +52,8 @@ namespace projet.Controllers
         }
 
         // GET: SchoolController/Edit/5
-        public ActionResult Edit(int id)
+               [Authorize(Roles="Admin")]
+ public ActionResult Edit(int id)
         {
 
 
@@ -65,7 +70,8 @@ namespace projet.Controllers
 
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit(AuteurEditViewModel model)
+                [Authorize(Roles="Admin")]
+public ActionResult Edit(AuteurEditViewModel model)
         {
             // Check if the provided data is valid, if not rerender the edit view
             // so the user can correct and resubmit the edit form
@@ -95,7 +101,8 @@ namespace projet.Controllers
         }
 
         // GET: SchoolController/Delete/5
-        public ActionResult Delete(int id)
+               [Authorize(Roles="Admin")]
+ public ActionResult Delete(int id)
         {
             var auteur = auteurRepository.GetAuteur(id);
             return View(auteur);
@@ -104,7 +111,8 @@ namespace projet.Controllers
         // POST: SchoolController/Delete/5
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Delete(Category c)
+               [Authorize(Roles="Admin")]
+ public ActionResult Delete(Category c)
         {
             try
             {

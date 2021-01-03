@@ -11,6 +11,7 @@ using Microsoft.AspNetCore.Hosting;
 using System.IO;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Mvc.Rendering;
+using Microsoft.AspNetCore.Authorization;
 
 namespace projet.Controllers
 {
@@ -32,6 +33,8 @@ namespace projet.Controllers
 
         }
         // GET: LivreController
+                [Authorize(Roles="Admin")]
+
         public ActionResult Index()
         {
             var model = _LivreRepository.GetAllLivre();
@@ -41,6 +44,8 @@ namespace projet.Controllers
         }
 
         // GET: LivreController/Details/5
+            [Authorize(Roles="Admin")]
+
         public ActionResult Details(int id)
         {
             var liv = _LivreRepository.GetLivre(id);
@@ -51,6 +56,7 @@ namespace projet.Controllers
         }
 
         // GET: LivreController/Create
+        [Authorize(Roles="Admin")]
         public ActionResult Create()
         {
             ViewBag.CategoryId = new SelectList(_CategoryRepository.GetAllCategory(), "Id", "Name");
@@ -60,6 +66,8 @@ namespace projet.Controllers
 
         // POST: LivreController/Create
         [HttpPost]
+        [Authorize(Roles="Admin")]
+
         [ValidateAntiForgeryToken]
         public ActionResult Create(CreateViewModel model)
         {
@@ -113,6 +121,7 @@ namespace projet.Controllers
 
         }
 
+        [Authorize(Roles="Admin")]
 
         public ActionResult Edit(int id)
         {
@@ -129,6 +138,7 @@ namespace projet.Controllers
             };
             return View(LivreEditViewModel);
         }
+        [Authorize(Roles="Admin")]
 
         [HttpPost]
         [ValidateAntiForgeryToken]
@@ -190,6 +200,7 @@ namespace projet.Controllers
 
             return uniqueFileName;
         }
+        [Authorize(Roles="Admin")]
 
 
         // GET: LivreController/Delete/5

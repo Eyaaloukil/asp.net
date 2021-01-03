@@ -1,0 +1,62 @@
+@model IEnumerable<Emprunt>
+
+@{
+    ViewBag.Title = "Emprunt List";
+}
+
+<div class="row">
+                            <div class="col-md-12">
+                                <div class="main-card mb-3 card">
+                                    <div class="card-header">Liste des Emprunt
+                                        <div class="btn-actions-pane-right">
+                                            
+                                        </div>
+                                    </div>
+                                    <div class="table-responsive">
+                                        <table class="align-middle mb-0 table table-borderless table-striped table-hover">
+                                            <thead>
+                                            <tr>
+                                                <th class="text-center">Nom Livre</th>
+                                                <th class="text-center">Date Retour</th>
+                                            </tr>
+                                            </thead>
+                                            <tbody>
+                                                @foreach (var emprunt in Model)
+    { @if (@emprunt.DateRetour < DateTime.UtcNow)
+    {
+           <tr >
+                                                <td class="text-center text-muted">@emprunt.Livre.Name</td>
+
+                                                
+
+                                                <td class="text-center" >@emprunt.DateRetour</td>
+                                               
+                                                <td class="text-center" ><img width="64px" src="/images/warning-icon-png-favpng-veQsyiL347EWdmLs2ajhCUP2f.jpg"/>
+                                                         
+                                                </td>
+                                            </tr>
+    }
+@if (@emprunt.DateRetour > DateTime.UtcNow){
+                               <tr>
+                                                <td class="text-center text-muted">@emprunt.Livre.Name</td>
+
+                                                
+
+                                                <td class="text-center">@emprunt.DateRetour</td>
+                                               
+                                       
+                                            </tr>
+    }}
+                                            </tbody>
+                                        </table>
+                                    </div>
+                                    <div class="d-block text-center card-footer">
+                                      
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+    
+        </div>
+  
+</div>

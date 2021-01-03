@@ -14392,8 +14392,18 @@
   "RootNamespace": "projet",
   "Documents": [
     {
+      "FilePath": "/home/kadhem/projet/asp.net/projet/Views/App/list.cshtml",
+      "TargetPath": "Views\\App\\list.cshtml",
+      "FileKind": "mvc"
+    },
+    {
       "FilePath": "/home/kadhem/projet/asp.net/projet/Views/Shared/_Layout.cshtml",
       "TargetPath": "Views\\Shared\\_Layout.cshtml",
+      "FileKind": "mvc"
+    },
+    {
+      "FilePath": "/home/kadhem/projet/asp.net/projet/Views/App/index.cshtml",
+      "TargetPath": "Views\\App\\index.cshtml",
       "FileKind": "mvc"
     },
     {
@@ -14407,8 +14417,18 @@
       "FileKind": "mvc"
     },
     {
+      "FilePath": "/home/kadhem/projet/asp.net/projet/Views/Account/Login.cshtml",
+      "TargetPath": "Views\\Account\\Login.cshtml",
+      "FileKind": "mvc"
+    },
+    {
       "FilePath": "/home/kadhem/projet/asp.net/projet/Views/_ViewImports.cshtml",
       "TargetPath": "Views\\_ViewImports.cshtml",
+      "FileKind": "mvc"
+    },
+    {
+      "FilePath": "/home/kadhem/projet/asp.net/projet/Views/Emprunt/index.cshtml",
+      "TargetPath": "Views\\Emprunt\\index.cshtml",
       "FileKind": "mvc"
     },
     {

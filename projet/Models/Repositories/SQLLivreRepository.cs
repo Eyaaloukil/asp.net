@@ -36,13 +36,20 @@ namespace projet.Models.Repositories
         {
             return context.Livre.Include("Category").Include("Auteur");
         }
+    
+        
+
 
         public Livre GetLivre(int Id)
         {
             return context.Livre.Find(Id);
         }
+         public IEnumerable<Livre> GetLivreByCategory(int Id)
+        {
+            return context.Livre.Where(x=>x.CategoryId==Id).Include("Category").Include("Auteur");
+        }
 
-        public Livre Update(Livre livreChanges)
+               public Livre Update(Livre livreChanges)
         {
             var livre = context.Livre.Attach(livreChanges);
             livre.State = EntityState.Modified;

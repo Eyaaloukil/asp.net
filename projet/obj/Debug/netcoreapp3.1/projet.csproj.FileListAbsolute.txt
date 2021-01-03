@@ -187,3 +187,7 @@ C:/Users/louki/Desktop/GI3/.NET/projet/projet/obj/Debug/netcoreapp3.1/projet.Mvc
 /home/kadhem/projet/asp.net/projet/obj/Debug/netcoreapp3.1/Razor/Views/Auteur/Delete.cshtml.g.cs
 /home/kadhem/projet/asp.net/projet/obj/Debug/netcoreapp3.1/Razor/Views/Auteur/Edit.cshtml.g.cs
 /home/kadhem/projet/asp.net/projet/obj/Debug/netcoreapp3.1/Razor/Views/Auteur/index.cshtml.g.cs
+/home/kadhem/projet/asp.net/projet/obj/Debug/netcoreapp3.1/Razor/Views/Account/Login.cshtml.g.cs
+/home/kadhem/projet/asp.net/projet/obj/Debug/netcoreapp3.1/Razor/Views/App/index.cshtml.g.cs
+/home/kadhem/projet/asp.net/projet/obj/Debug/netcoreapp3.1/Razor/Views/App/list.cshtml.g.cs
+/home/kadhem/projet/asp.net/projet/obj/Debug/netcoreapp3.1/Razor/Views/Emprunt/index.cshtml.g.cs
